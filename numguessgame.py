@@ -14,7 +14,7 @@ def start_game():
 
     while True:
         # show how many guesses there is left
-        print("You have {}/9 guesses \n".format(guess_game))
+        print("You have {}/7 guesses \n".format(guess_game))
 
         # ask the user for a number from 1 to a 10
         try:
@@ -32,11 +32,11 @@ def start_game():
         # tell the user if they need to guess higher or lower
         if guess > number:
             if not guess_game > 6:
-                print('The number is too low try again: ')
+                print('The number is too high try lower')
 
-        if guess < number:
+        elif guess < number:
             if not guess_game > 6:
-                print('The number is too high try again: ')
+                print('The number is too low try higher')
 
         # if the user got the number, tell the user that they won
         elif guess == number:
@@ -57,10 +57,10 @@ def start_game():
             print('Too bad but good effort! The number was {}'.format(number))
             play_again = (
                 input('Want to play! Enter yes/no or simply press "ENTER" to exit ').lower())
-            if play_again == "yes":
+            if play_again == "y":
                 print("Here we go again \n")
                 start_game()
-            elif play_again == "no":
+            elif play_again == "n":
                 print('Game Over')
                 sys.exit()
             else:
